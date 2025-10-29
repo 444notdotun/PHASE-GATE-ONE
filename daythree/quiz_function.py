@@ -8,16 +8,13 @@ validate_answer = {"what is my name?":"adedotun","who is your java sensei?": "mi
 count = 0
 
 def questioner():
-	
 	return random.choice(questions)
 	
-
 def question_index(num):
 	return questions.index(num)
 
 def answer(num):
-	return ( random.choice(answers),random.choice(answers),random.choice(answers),
-answers[question_index(num)])
+	return (random.choice(answers),random.choice(answers),random.choice(answers),answers[question_index(num)])
 
 def validation(input,question,count):
 	

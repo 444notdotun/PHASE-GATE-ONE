@@ -11,13 +11,19 @@ while True:
 				print(f" QUESTION ==> {question}")
 				question_index(question)
 				print(answer(question))
+				print(question_index(question))
 				option = input("ANSWER==>: ").lower()
 				print(validation(option,question,count))
 				if validation(option,question,count)=="CORRECT!":
+					answers.pop(question_index(question))
+					questions.remove(question)
+					
 					count+=1
-				if counter==4:
+				if counter>=4:
 					print(f"GAME OVER!, YOU SCORE {get_counter(count)} PLAYED {counter}")
 				counter+=1
+				if counter==8:
+					break
 		case "2":
 			print("THANKS FOR PLAYING!")
 			break
