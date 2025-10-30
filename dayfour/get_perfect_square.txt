@@ -1,0 +1,22 @@
+function get_perfect_square(test_list){
+	for(let count = 0; count < test_list.length;count++){
+			
+		let counter = 1;
+		while(counter != 0){
+			result = test_list[count]%counter
+			if (result==0){
+				actual = test_list[count]/counter;
+				actual=actual*actual;
+				if (actual==test_list[count]){
+					return test_list[count]=True;
+					
+				
+				}
+				else{
+					return test_list[count]=False;
+				}
+				counter =result;	
+			}
+			else{
+			 counter++}
+			
