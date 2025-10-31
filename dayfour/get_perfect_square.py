@@ -1,31 +1,31 @@
 def get_square():
-	number = {4,6,49,25}
-	count = 0
-	for counts in number:
-		count+=1
+	test_list = [4,6,49,25]
 	
-	for counting in range(count):
-		print(counting)
-		counter =2
-		while counter != 0:
-			result = number[counting]%counter
-			if result==0:
-				actual = number[counting]/counter
-				actual=actual*actual
-			if actual== number[counting]:
-					number[counting]=true
-			else:
-				 number[counting]= false
-			counter = result	
-			if number[count] == 0:
-				array[count]=false
+	array = [0,0,0,0]
+	for counting in range(0,4):
+		count = 0
+		number = test_list[counting]
+		
+		counter = 0
+
+		while number > 0:
 			
-			if number[count] == 1:
-				array[count]=true
+			if counter % 2 > 0:
+				number-=counter
+				count+=1
 				
-			else:
-				counter+=1
-	return number
+			counter+=1
+		print(count)
+		if count*count == test_list[counting]: 
+			array[counting]=True
+				
+		else:
+			array[counting]=False
+		if test_list[counting]==0:
+			array[counting]=False
+				
+
+	return array
 
 print(get_square())
 		
