@@ -1,17 +1,17 @@
 from quiz_function import *
-count=0
+
 while True:
 	print(main_menu())
 	menu_input = input("ENTER INPUT: ")
 	match menu_input:
 		case "1":
+			count = 0
 			counter = 1
 			while counter <= 4:
 				question = questioner()
 				print(f" QUESTION ==> {question}")
 				question_index(question)
 				print(answer(question))
-				print(question_index(question))
 				option = input("ANSWER==>: ").lower()
 				print(validation(option,question,count))
 				if validation(option,question,count)=="CORRECT!":
