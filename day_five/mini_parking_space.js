@@ -2,7 +2,7 @@ parking_slot=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 function check_for_slot(name,parking_slot){
 	let expected = 0
 	for(let position = 0; position < parking_slot.length;position++){
-		console.log(parking_slot[position])	
+			
 		if (parking_slot[position] == 0){
 			parking_slot[position] = name
 			return parking_slot.indexOf(name)
@@ -17,16 +17,19 @@ function check_for_slot(name,parking_slot){
 function retrieve_parked_car(input,name,parking_slot){
 	let expected =0	
 	for(let count = 0; count < parking_slot.length;count++){
+		
 		if (parking_slot[count] == name){
-			let expected = parking_slot.indexOf(name)
-			break
+			expected = parking_slot.indexOf(name)
+			break;
 		}
 		else{	
-			return "ENTER A VALID NAME"
+			
+			expected= "ENTER A VALID NAME"
 		}
 	}
-			
+		console.log(expected)
 	if (input ==  expected){
+		parking_slot[input] = 0
 		return "THANK YOU AND HOPE TO SEE YOU SOON"
 	}
 	else{
@@ -35,13 +38,11 @@ function retrieve_parked_car(input,name,parking_slot){
 }
 
 function show_parking_lot(parking_slot){
-	for(let count = 0; count < parking_slot.length;count++){
-		if( parking_slot[count] != 0){
-			parking_slot[count] = 1
-		}
+	
 	return parking_slot
 }
-}function main_menu(){
+
+function main_menu(){
 	let menu=`
 ================================
 NOTDOTUN'S AUTOMATED PARKING LOT
@@ -94,7 +95,5 @@ WELCOME
 
 		default:
 			console.log("ENTER A VALID INPUT")
-			process.exit
-			break
 		}
 }
