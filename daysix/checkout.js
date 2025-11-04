@@ -79,27 +79,43 @@ console.log(" ")
 console.info(" subtotal: #",total_amount)
 console.info(" VAT(7.5%) : #",vat_price(total_amount))
 console.info(" Total Amount: #",total_amounts(vat_price(total_amount),total_amount))
+let count = 1
+while(count !=0){
 
-let payment =prompt("enter payment amount: ")
-payment = Number(payment)
-grand_total = total_amounts(vat_price(total_amount),total_amount)
-balance_of = balance(grand_total,payment)
-console.log(" ")
+	let payment =prompt("enter payment amount: ")
 
-console.log(payment_receipt())
-for(let count=0; count < product_list.lenght; count++){
-	console.info( product_list[count], " =>" ,prices[count])
-}
+	payment = Number(payment)
+	grand_total = total_amounts(vat_price(total_amount),total_amount)
+	balance_of = balance(grand_total,payment)
+	if(payment <grand_total){
+		console.log("payment is below your cost")
+	}
+	else if(payment < 0){
+		console.log("payment is below your cost")
+	}
+	
+	else{
 
-console.info("Total paid: #",payment)
-console.info("Grand Total: #",total_amounts(vat_price(total_amount),total_amount))
+	console.log(" ")
+
+	console.log(payment_receipt())
+	for(let count=0; count < product_list.lenght; count++){
+		console.info( product_list[count], " =>" ,prices[count])
+	}	
+
+	console.info("Total paid: #",payment)
+	console.info("Grand Total: #",total_amounts(vat_price(total_amount),total_amount))
 
 
-if (balance_of < 0){
+	if (balance_of < 0){
 	console.log(transaction_status(balance(grand_total,payment)))
-}
-else{
+	break
+	}
+	else{
 
 	console.log(" Balance #",balance(grand_total,payment))
 	console.log(transaction_status(balance(grand_total,payment)))
+	break
+	}
+}
 }
