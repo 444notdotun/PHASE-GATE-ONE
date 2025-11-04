@@ -15,13 +15,11 @@ def check_for_slot(name,parking_slot):
 def retrieve_parked_car(input,name,parking_slot):
 		
 	for count in parking_slot:
-		print(count)
 		if count == name:
-			
 			expected = parking_slot.index(name)
 			break
-		else:	
-			return "ENTER A VALID NAME"
+		else:		
+			expected = "ENTER A VALID KEY"
 	if input.isdigit():		
 		if int(input) ==  expected:
 			parking_slot[int(input)] = 0
@@ -31,9 +29,7 @@ def retrieve_parked_car(input,name,parking_slot):
 		return "ENTER A VALID KEY"
 
 def show_parking_lot(parking_slot):
-	for count in range(len(parking_slot)):
-		if parking_slot[count] != 0:
-			parking_slot[count] = 1
+	
 	return parking_slot
 
 def main_menu():

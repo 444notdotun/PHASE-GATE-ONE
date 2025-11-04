@@ -45,12 +45,18 @@ let counter = 1
 while( counter != 0){
 	let product_name =prompt("enter product name: ")
 	product_list.push(product_name)
-	
-	let product_price = prompt("enter product price: ")		
+	let counting = 1
+	while(counting !=0){
+	let product_price = prompt("enter product price: ")
+	if (product_price < 0){
+		console.log("price can not be less than 0")
+	}
+	else{		
 	prices.push(product_price)
 	total_amount = sub_total(Number(product_price),Number(total_amount))
-	
-		
+	counting = 0
+	}
+}
 	let choice = Number(prompt("continue or done(1/2)"))
 	switch (choice){
 		case 1:
@@ -76,6 +82,8 @@ console.info(" Total Amount: #",total_amounts(vat_price(total_amount),total_amou
 
 let payment =prompt("enter payment amount: ")
 payment = Number(payment)
+grand_total = total_amounts(vat_price(total_amount),total_amount)
+balance_of = balance(grand_total,payment)
 console.log(" ")
 
 console.log(payment_receipt())
@@ -85,8 +93,8 @@ for(let count=0; count < product_list.lenght; count++){
 
 console.info("Total paid: #",payment)
 console.info("Grand Total: #",total_amounts(vat_price(total_amount),total_amount))
-grand_total = total_amounts(vat_price(total_amount),total_amount)
-balance_of = balance(grand_total,payment)
+
+
 if (balance_of < 0){
 	console.log(transaction_status(balance(grand_total,payment)))
 }

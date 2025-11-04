@@ -8,9 +8,13 @@ while(True):
 	product_list.append(product_name)
 	while(True):
 		product_price = input("enter product price: ")
-		if product_price.isdigit:
+		if product_price.isdigit():
 			prices.append(product_price)
-			total_amount = sub_total(float(product_price),total_amount)
+			product_price = float(product_price)
+			
+			total_amount = sub_total(product_price,total_amount)
+			
+			
 			
 			break
 		else:
@@ -35,25 +39,32 @@ print(" ")
 print(f" subtotal: #{total_amount}")
 print(f" VAT(7.5%) : #{vat_price(total_amount)}")
 print(f" Total Amount: #{total_amounts(vat_price(total_amount),total_amount)}")
+while(True):
+	payment = float(input("enter payment amount: "))
+	grand_total = total_amounts(vat_price(total_amount),total_amount)
+	balance_of = float(balance(grand_total,payment))
 
-payment = float(input("enter payment amount: "))
+	if payment < 0 and payment < balance_of:
+		print("payment can not be less than zero")
+	elif payment > 0 and payment < balance_of:
+		print("payment can not be less than balance")
+	else:
 
-print(" ")
+		print(" ")
+		
 
-print(payment_receipt())
-for count in range(len(product_list)):
-	print(f" {product_list[count]} => {prices[count]}")
+		print(payment_receipt())
+		for count in range(len(product_list)):
+			print(f" {product_list[count]} => {prices[count]}")
 
-print(f" Total paid: #{payment}")
-print(f" Grand Total: #{total_amounts(vat_price(total_amount),total_amount)}")
-grand_total = total_amounts(vat_price(total_amount),total_amount)
-balance_of = balance(grand_total,payment)
-if balance_of < 0:
-	print(transaction_status(balance(grand_total,payment)))
-else:
+		print(f" Total paid: #{payment}")
+		print(f" Grand Total: #{total_amounts(vat_price(total_amount),total_amount)}")
+	
+		
 
-	print(f" Balance #{balance(grand_total,payment):.2f}")
-	print(transaction_status(balance(grand_total,payment)))
+		print(f" Balance #{balance(grand_total,payment):.2f}")
+		print(transaction_status(balance(grand_total,payment)))
+		break
 
 
 
